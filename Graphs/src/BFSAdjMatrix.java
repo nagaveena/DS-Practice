@@ -31,7 +31,7 @@ import java.util.Queue;
 		public ArrayList<Node> findNeighbours(int adjacency_matrix[][],Node x)
 		{
 			int nodeIndex=-1;
-	 
+	
 			ArrayList<Node> neighbours=new ArrayList<Node>();
 			for (int i = 0; i < nodes.size(); i++) {
 				if(nodes.get(i).equals(x))

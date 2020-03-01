@@ -1,4 +1,43 @@
 import java.util.*;
+/*
+ * Less coding approach
+ *
+  void dfs(char[][] grid, int r, int c) {
+    int nr = grid.length;
+    int nc = grid[0].length;
+
+    if (r < 0 || c < 0 || r >= nr || c >= nc || grid[r][c] == '0') {
+      return;
+    }
+
+    grid[r][c] = '0';
+    dfs(grid, r - 1, c);
+    dfs(grid, r + 1, c);
+    dfs(grid, r, c - 1);
+    dfs(grid, r, c + 1);
+  }
+
+  public int numIslands(char[][] grid) {
+    if (grid == null || grid.length == 0) {
+      return 0;
+    }
+
+    int nr = grid.length;
+    int nc = grid[0].length;
+    int num_islands = 0;
+    for (int r = 0; r < nr; ++r) {
+      for (int c = 0; c < nc; ++c) {
+        if (grid[r][c] == '1') {
+          ++num_islands;
+          dfs(grid, r, c);
+        }
+      }
+    }
+
+    return num_islands;
+  }
+
+ */
 public class NumberOfIslands {
 	public class Node{
 		int row;
@@ -34,16 +73,16 @@ public class NumberOfIslands {
 	}
  public List<Node> findNeighbors(int [][]grid,int row,int col,int [][]visited){
 	 List<Node> neighbors =  new ArrayList<Node>();
-	 int[] valid_rows = {0,1,0,-1};
-	 int [] valid_cols = {-1,0,1,0};
+	 int[] valid_rows =  {0, 1,0,-1};
+	 int [] valid_cols = {-1,0,1, 0};
 	 for(int i =0; i < valid_rows.length  ;i++) {
 		int  r = row+valid_rows[i];
 		int  c = col+valid_cols[i];
-		if( r > 0  && r < grid.length &&   c> 0  && c < grid[0].length) {
+		if( r > 0  && r < grid.length &&   c > 0  && c < grid[0].length) {
 		   if(visited[r][c]== 0 && grid[r][c] == 1) {
 			   System.out.println("r:" + r + "c:" + c);
 			neighbors.add(new Node(r,c));
-		 }
+		  }
 		}
 	 }
 	 return neighbors;
@@ -57,6 +96,15 @@ public class NumberOfIslands {
     		           {1,0,0,0,0},
     		           {1,1,0,0,0}
     		           };
+     
+     List<String[]> folders = Arrays.asList(new String[][]{
+         {"A", null},
+         {"B", "A"},
+         {"C", "B"},
+         {"D", "B"},
+         {"E", "A"},
+         {"F", "E"},
+       });
                   
 	
 	NumberOfIslands numOfIsl = new NumberOfIslands();

@@ -1,14 +1,13 @@
 import java.util.*;
 
 public class CourseOrderingBFS {
-	
-	
-	public static  class Vertex{
+
+	public static class Vertex {
 		char name;
 		ArrayList<Vertex> neighbors;
-		
+
 		public Vertex(char n) {
-			name =n;
+			name = n;
 		}
 	}
 	
@@ -60,6 +59,7 @@ public class CourseOrderingBFS {
 			} else {
 				map.put(e.end, 1);
 			}
+			
 		}
 		System.out.println("map:" + map);
 	}
